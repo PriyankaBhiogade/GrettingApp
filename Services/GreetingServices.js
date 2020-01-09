@@ -1,6 +1,6 @@
 class GreetingServices {
-    getMessage() {
-        return "Welcome To Greeting App";
+    getMessage(req) {
+        return `Hello ${req.firstName} ${req.lastName}`;
     }
 }
 
