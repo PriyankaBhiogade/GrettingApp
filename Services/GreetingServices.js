@@ -22,6 +22,13 @@ class GreetingServices {
             return result;
         }
     }
+    getAllMessage(){
+        return model.read().then(result =>{
+            return result;
+        }).catch((error) => {
+            return (error);
+        })
+    }
 }
 
 module.exports = new GreetingServices();

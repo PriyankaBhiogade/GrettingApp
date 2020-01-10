@@ -21,11 +21,31 @@ class GreetingModel {
                 message: req.message
             })
             user.save().then(message => {
-                response.success,
+                response.success = true,
                     response.message = message.message
                 resolve(response);
             }).catch((error) => {
-                reject(error);
+                response.success = false,
+                    response.message = error
+                reject(response);
+            })
+        })
+    }
+
+    read() {
+        return new Promise((resolve, reject) => {
+            let response = {
+                success: true
+            }
+            greetingModel.find().then(allMessages => {
+                console.log("asas",allMessages)
+                response.success = true,
+                    response.message = allMessages
+                resolve(response);
+            }).catch((error) => {
+                response.success = false,
+                    response.message = error
+                reject(response);
             })
         })
     }
