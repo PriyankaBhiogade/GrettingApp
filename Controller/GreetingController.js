@@ -30,7 +30,18 @@ class GreetingController {
         }).catch((error) => {
             res.status(400).send(error)
         })
+    }
 
+    editMessage(req,res) {
+        let requestData = {
+            id:req.params.id,
+            message: req.body.message
+        }
+        greetingService.editMessage(requestData).then(result => {
+            res.status(200).send(result);
+        }).catch((error) => {
+            res.status(400).send(error)
+        })
     }
 }
 

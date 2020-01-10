@@ -35,7 +35,13 @@ class GreetingServices {
         }).catch((error) => {
             return (error);
         })
-
+    }
+    editMessage(req){
+        return model.update(req).then(result => {
+            return result;
+        }).catch((error) => {
+            return (error);
+        })
     }
 }
 

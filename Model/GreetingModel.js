@@ -49,6 +49,26 @@ class GreetingModel {
             })
         })
     }
+
+    update(req) {
+        return new Promise(((resolve, reject) => {
+            let response = {
+                success: true
+            }
+            greetingModel.findByIdAndUpdate(req.id, {set: {message: req.message}})
+                .then(message => {
+                    console.log(message)
+                    response.success = true,
+                        response.message = message
+                    resolve(response);
+                }).catch((error) => {
+                response.success = false,
+                    response.message = error
+                reject(response);
+            })
+
+        }))
+    }
 }
 
 module.exports = new GreetingModel();
