@@ -1,13 +1,16 @@
 let greetingService = require('../Services/GreetingServices');
 
 class GreetingController {
-    welcomeMessage(req, res) {
+    createMessage(req, res) {
         let requestData = {
             firstName: req.query.firstName,
             lastName: req.query.lastName
         }
-        let result = greetingService.getMessage(requestData);
-        res.send(result);
+        greetingService.createMessage(requestData).then(result => {
+            res.status(200).send(result);
+        }).catch((error) => {
+            res.status(400).send(error)
+        })
     }
 }
 

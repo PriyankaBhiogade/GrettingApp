@@ -1,9 +1,26 @@
+const model = require('../Model/GreetingModel');
+
 class GreetingServices {
-    getMessage(req) {
-        if (req.firstName == undefined && req.lastName == undefined)
-            return `Hello World`
-        else
-            return `Hello ${(req.firstName == undefined) ? "" : req.firstName} ${(req.lastName == undefined) ? "" : req.lastName}`;
+    createMessage(req) {
+        if (req.firstName == undefined && req.lastName == undefined) {
+            let filterData = {
+                'name': req.firstName,
+                'message': `Hello World`
+            }
+            return model.create(filterData).then(result =>{
+                return result;
+            }).catch((error) => {
+                return (error);
+            })
+
+        } else {
+            let filterData = {
+                'name': req.firstName,
+                'message': `Hello ${(req.firstName == undefined) ? "" : req.firstName} ${(req.lastName == undefined) ? "" : req.lastName}`
+            }
+            let result = model.create(filterData);
+            return result;
+        }
     }
 }
 
