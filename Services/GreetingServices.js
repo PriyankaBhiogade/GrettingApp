@@ -1,6 +1,9 @@
 class GreetingServices {
     getMessage(req) {
-        return `Hello ${req.firstName} ${req.lastName}`;
+        if (req.firstName == undefined && req.lastName == undefined)
+            return `Hello World`
+        else
+            return `Hello ${(req.firstName == undefined) ? "" : req.firstName} ${(req.lastName == undefined) ? "" : req.lastName}`;
     }
 }
 

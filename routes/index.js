@@ -1,11 +1,11 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 let greetingController = require('../Controller/GreetingController')
 
-router.get('/welcome/:firstName/:lastName', greetingController.welcomeMessage);
-router.post('/welcome', greetingController.welcomeMessage);
-router.put('/welcome', greetingController.welcomeMessage);
-router.delete('/welcome', greetingController.welcomeMessage);
+router.get('/greeting/', greetingController.welcomeMessage);
+router.post('/greeting/', greetingController.welcomeMessage);
+router.put('/greeting/', greetingController.welcomeMessage);
+router.delete('/greeting/', greetingController.welcomeMessage);
 
 
 module.exports = router;
