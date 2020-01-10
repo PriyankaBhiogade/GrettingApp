@@ -43,6 +43,7 @@ class GreetingController {
             res.status(400).send(error)
         })
     }
+
 }
 
 module.exports = new GreetingController();

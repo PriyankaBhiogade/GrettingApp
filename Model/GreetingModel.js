@@ -57,7 +57,7 @@ class GreetingModel {
             }
             greetingModel.findByIdAndUpdate(req.id, {set: {message: req.message}})
                 .then(message => {
-                    console.log(message)
+                    console.log(message);
                     response.success = true,
                         response.message = message
                     resolve(response);
