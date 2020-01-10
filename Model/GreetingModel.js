@@ -66,7 +66,25 @@ class GreetingModel {
                     response.message = error
                 reject(response);
             })
+        }))
+    }
 
+    delete(req){
+        return new Promise(((resolve, reject) => {
+            let response = {
+                success: true
+            }
+            greetingModel.findByIdAndDelete(req.id, {set: {message: req.message}})
+                .then(message => {
+                    console.log(message);
+                    response.success = true,
+                        response.message = message
+                    resolve(response);
+                }).catch((error) => {
+                response.success = false,
+                    response.message = error
+                reject(response);
+            })
         }))
     }
 }

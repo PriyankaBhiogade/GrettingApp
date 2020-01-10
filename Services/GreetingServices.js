@@ -43,6 +43,13 @@ class GreetingServices {
             return (error);
         })
     }
+    deleteMessage(req){
+        return model.delete(req).then(result => {
+            return result;
+        }).catch((error) => {
+            return (error);
+        })
+    }
 }
 
 module.exports = new GreetingServices();
