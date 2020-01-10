@@ -20,6 +20,18 @@ class GreetingController {
             res.status(400).send(error)
         })
     }
+
+    findGreetingMessageById(req, res) {
+        let requestData = {
+            id: req.params.id
+        }
+        greetingService.findGreetingMessageById(requestData).then(result => {
+            res.status(200).send(result);
+        }).catch((error) => {
+            res.status(400).send(error)
+        })
+
+    }
 }
 
 module.exports = new GreetingController();

@@ -29,6 +29,14 @@ class GreetingServices {
             return (error);
         })
     }
+    findGreetingMessageById(req){
+        return model.read(req).then(result =>{
+            return result;
+        }).catch((error) => {
+            return (error);
+        })
+
+    }
 }
 
 module.exports = new GreetingServices();

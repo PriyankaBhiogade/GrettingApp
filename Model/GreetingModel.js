@@ -32,15 +32,15 @@ class GreetingModel {
         })
     }
 
-    read() {
+    read(req) {
         return new Promise((resolve, reject) => {
             let response = {
                 success: true
             }
-            greetingModel.find().then(allMessages => {
-                console.log("asas",allMessages)
+            greetingModel.find({_id: req.id}
+            ).then(messages => {
                 response.success = true,
-                    response.message = allMessages
+                    response.message = messages
                 resolve(response);
             }).catch((error) => {
                 response.success = false,
