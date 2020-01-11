@@ -55,11 +55,9 @@ class GreetingModel {
             let response = {
                 success: true
             }
-            greetingModel.findByIdAndUpdate(req.id, {set: {message: req.message}})
+            greetingModel.findOneAndUpdate({"_id":req.id},  {"message": req.message})
                 .then(message => {
-                    console.log(message)
-                    response.success = true,
-                        response.message = message
+                        response.message = message.message
                     resolve(response);
                 }).catch((error) => {
                 response.success = false,

@@ -3,7 +3,7 @@ const dbConfig = require('./dbConfig');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(dbConfig.url, {
-    useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true
+    useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
 }).then(() => {
     console.log(`Successfully connected to the Database.....`);
 }).catch((err) => {
